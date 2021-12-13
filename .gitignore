@@ -1,0 +1,6 @@
+samples/
+certs/
+
+*.pyc
+.coverage
+.DS_Store

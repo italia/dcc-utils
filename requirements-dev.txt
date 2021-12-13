@@ -1,0 +1,8 @@
+-r requirements.txt
+
+black==21.12b0
+pytest==6.2.5
+codecov==2.1.12
+coverage==6.2
+pytest-cov==3.0.0
+flake8==4.0.1
