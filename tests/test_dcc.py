@@ -3,6 +3,12 @@ import os
 from dcc_utils import from_image
 
 
+def test_certificate_from_image():
+    dcc = from_image(os.path.join("tests", "test_data", "mouse.jpeg"))
+    assert dcc.kid == "53FOjX/4aJs="
+    assert dcc.payload["v"][0]["ci"] == "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
+
+
 def test_ec_certificate():
     dcc = from_image(os.path.join("tests", "test_data", "signed_cert.png"))
     with open(

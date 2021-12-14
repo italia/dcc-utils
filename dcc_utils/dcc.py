@@ -2,6 +2,7 @@ import zlib
 import PIL.Image
 import json
 import base45
+import base64
 import cbor2
 from pyzbar import pyzbar
 from cose.messages import CoseMessage, sign1message
@@ -20,11 +21,19 @@ class DCC:
         self._cose = cose_msg
         self._kid = kid
 
-    def __str__(self) -> str:
-        return json.dumps(self._payload, indent=2, default=str, ensure_ascii=False)
+    @property
+    def kid(self):
+        return base64.b64encode(self._kid).decode("utf-8")
+
+    @property
+    def payload(self):
+        return self._payload
 
     def check_signature(self, cert: bytes) -> bool:
         return verify_signature(self._cose, self._kid, cert)
+
+    def __str__(self) -> str:
+        return json.dumps(self._payload, indent=2, default=str, ensure_ascii=False)
 
 
 def from_raw(raw_data: str) -> DCC:
