@@ -1,6 +1,14 @@
 import os
 
-from dcc_utils import from_image
+from dcc_utils import from_image, from_raw
+
+
+def test_certificate_from_raw():
+    with open(
+        os.path.join("tests", "test_data", "raw_cert")
+    ) as cert:
+        dcc = from_raw(cert.read())
+        assert dcc.payload["nam"]["fn"] == "Mustermann"
 
 
 def test_certificate_from_image():
