@@ -9,7 +9,7 @@ from cose.messages import CoseMessage, sign1message
 from cose.headers import KID
 
 from .utils import verify_signature
-from .errors import DCCError
+from .exceptions import DCCError, DCCParsingError
 
 
 class DCC:
@@ -39,21 +39,24 @@ class DCC:
 def from_raw(raw_data: str) -> DCC:
     # Code adapted from:
     # https://github.com/HQJaTu/vacdec/blob/main/vacdec
-    b45data = raw_data[4:]
-    zlibdata = base45.b45decode(b45data)
-    decompressed = zlib.decompress(zlibdata)
-    cose_msg = CoseMessage.decode(decompressed)
-    pkid, ukid = cose_msg.phdr.get(KID), cose_msg.uhdr.get(KID)
-    if not pkid and not ukid:
-        raise DCCError("Certificate not signed!")
-    else:
-        kid = pkid or ukid
-    payload = cbor2.loads(cose_msg.payload)
-    return DCC(payload, raw_data, cose_msg, kid)
+    try:
+        b45data = raw_data[4:]
+        zlibdata = base45.b45decode(b45data)
+        decompressed = zlib.decompress(zlibdata)
+        cose_msg = CoseMessage.decode(decompressed)
+        pkid, ukid = cose_msg.phdr.get(KID), cose_msg.uhdr.get(KID)
+        if not pkid and not ukid:
+            raise DCCError("Certificate not signed!")
+        else:
+            kid = pkid or ukid
+        payload = cbor2.loads(cose_msg.payload)
+        return DCC(payload, raw_data, cose_msg, kid)
+    except ValueError as ex:
+        raise DCCParsingError(ex)
 
 
 def from_image(image_path: str) -> DCC:
     data = pyzbar.decode(PIL.Image.open(image_path))
     if len(data) == 0:
-        raise DCCError("Not valid image!")
+        raise DCCParsingError("Not valid image!")
     return from_raw(data[0].data.decode())

@@ -7,11 +7,14 @@ from cose.exceptions import CoseIllegalAlgorithm
 from cryptography import x509
 from cryptography import hazmat
 
-from .errors import DCCError
+from .exceptions import DCCSignatureError
 
 
 def _cert_to_cose_key(cert: x509.Certificate, key_id: KID = None) -> cosekey.CoseKey:
-    public_key = cert.public_key()
+    try:
+        public_key = cert.public_key()
+    except ValueError as ex:
+        raise DCCSignatureError(ex)
     key_dict = None
 
     if isinstance(public_key, hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey):
@@ -26,11 +29,11 @@ def _cert_to_cose_key(cert: x509.Certificate, key_id: KID = None) -> cosekey.Cos
                 elif name == "SECP384R1":
                     matching_curve = curves.P384
                 else:
-                    raise DCCError("Unknown curve {}!".format(curve_name))
+                    raise DCCSignatureError("Unknown curve {}!".format(curve_name))
                 break
 
         if not matching_curve:
-            raise DCCError(
+            raise DCCSignatureError(
                 "Could not find curve {} used in X.509 certificate from COSE!".format(
                     curve_name
                 )

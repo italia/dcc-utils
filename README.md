@@ -33,6 +33,12 @@ assert dcc_from_img.kid == "53FOjX/4aJs="
 assert dcc_from_img.payload["v"][0]["ci"] == "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
 ```
 
+`from_image` and `from_raw` methods may rise `DCCParsingError`
+
+```py
+from dcc_utils.exceptions import DCCParsingError
+```
+
 ### Validate DCC digital signature
 
 ```py
@@ -42,6 +48,12 @@ MIIIAjCCBeqgAwIBAgIQAnq8g/T
 -----END CERTIFICATE-----
 """
 assert dcc.check_signature(signature)
+```
+
+`check_signature` method may rise `DCCSignatureError`
+
+```py
+from dcc_utils.exceptions import DCCSignatureError
 ```
 
 ## Dev setup
