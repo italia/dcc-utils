@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 setup(
     name="dcc-utils",
-    version="0.0.0",
+    version="0.1.0",
     url="https://github.com/astagi/dcc-utils",
     install_requires=[
         "base45==0.4.1",
@@ -18,7 +18,7 @@ setup(
     license="MIT",
     author="Andrea Stagi",
     author_email="stagi.andrea@gmail.com",
-    packages=find_packages(),
+    packages=["dcc_utils"],
     classifiers=[
         "Intended Audience :: Developers",
         "Programming Language :: Python",
