@@ -30,4 +30,8 @@ jobs:
     - name: Test with pytest and calculate coverage 🧪
       run: |
         make test
-        coverage report
+        cp .coverage ./dcc_utils/
+    - name: Upload coverage
+      uses: codecov/codecov-action@v2
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
