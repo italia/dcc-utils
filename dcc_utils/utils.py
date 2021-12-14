@@ -1,5 +1,3 @@
-import logging
-
 from cose.headers import KID
 from cose.messages import CoseMessage
 from cose.keys import cosekey, keyops, keyparam, curves, keytype
@@ -9,7 +7,7 @@ from cose.exceptions import CoseIllegalAlgorithm
 from cryptography import x509
 from cryptography import hazmat
 
-log = logging.getLogger(__name__)
+from .errors import DCCError
 
 
 def _cert_to_cose_key(cert: x509.Certificate, key_id: KID = None) -> cosekey.CoseKey:
@@ -28,11 +26,11 @@ def _cert_to_cose_key(cert: x509.Certificate, key_id: KID = None) -> cosekey.Cos
                 elif name == "SECP384R1":
                     matching_curve = curves.P384
                 else:
-                    raise RuntimeError("Unknown curve {}!".format(curve_name))
+                    raise DCCError("Unknown curve {}!".format(curve_name))
                 break
 
         if not matching_curve:
-            raise RuntimeError(
+            raise DCCError(
                 "Could not find curve {} used in X.509 certificate from COSE!".format(
                     curve_name
                 )

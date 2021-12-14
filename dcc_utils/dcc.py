@@ -8,10 +8,13 @@ from cose.messages import CoseMessage, sign1message
 from cose.headers import KID
 
 from .utils import verify_signature
+from .errors import DCCError
 
 
 class DCC:
-    def __init__(self, payload: dict, raw: str, cose_msg: sign1message.Sign1Message, kid: bytes):
+    def __init__(
+        self, payload: dict, raw: str, cose_msg: sign1message.Sign1Message, kid: bytes
+    ):
         self._payload = payload[-260][1]
         self._raw = raw
         self._cose = cose_msg
@@ -33,7 +36,7 @@ def from_raw(raw_data: str) -> DCC:
     cose_msg = CoseMessage.decode(decompressed)
     pkid, ukid = cose_msg.phdr.get(KID), cose_msg.uhdr.get(KID)
     if not pkid and not ukid:
-        raise RuntimeError("Certificate not signed!")
+        raise DCCError("Certificate not signed!")
     else:
         kid = pkid or ukid
     payload = cbor2.loads(cose_msg.payload)
@@ -43,5 +46,5 @@ def from_raw(raw_data: str) -> DCC:
 def from_image(image_path: str) -> DCC:
     data = pyzbar.decode(PIL.Image.open(image_path))
     if len(data) == 0:
-        raise RuntimeError("Not valid image!")
+        raise DCCError("Not valid image!")
     return from_raw(data[0].data.decode())

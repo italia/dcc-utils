@@ -1,0 +1,2 @@
+class DCCError(Exception):
+    pass
