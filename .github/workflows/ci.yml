@@ -1,4 +1,4 @@
-name: dcc-utils - Test and Coverage
+name: CI
 
 on:
   push:

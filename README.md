@@ -1,6 +1,14 @@
 # DCC Utils
 Python library to decode the EU Covid-19 vaccine certificate, as [specified by the EU](https://ec.europa.eu/health/ehealth/covid-19_en).
 
+[![Latest Version](https://img.shields.io/pypi/v/dcc-utils.svg)](https://pypi.python.org/pypi/dcc-utils/)
+[![CI](https://github.com/astagi/dcc-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/astagi/dcc-utils)
+[![Coverage](https://codecov.io/gh/astagi/dcc-utils/branch/master/graph/badge.svg?token=SZ7lyP073V)](https://codecov.io/gh/astagi/dcc-utils)
+[![Supported Python versions](https://img.shields.io/badge/python-3.7%2C%203.8%2C%203.9%2C%203.10-blue.svg)](https://pypi.python.org/pypi/dcc-utils/)
+[![License](https://img.shields.io/github/license/astagi/dcc-utils.svg)](https://pypi.python.org/pypi/dcc-utils/)
+[![Downloads](https://img.shields.io/pypi/dm/dcc-utils.svg)](https://pypi.python.org/pypi/dcc-utils/)
+
+
 ## Setup
 
 ```sh
