@@ -5,4 +5,4 @@ clean:
 
 test: clean
 	@flake8
-	@pytest --cov=dcc_utils -s --cov-report term-missing
+	@pytest --cov=dcc_utils -s --cov-report=xml --cov-report term-missing

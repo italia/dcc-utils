@@ -2,10 +2,13 @@ samples/
 certs/
 
 *.pyc
-.coverage
 .DS_Store
 
 # Build
 /build
 *.egg-info
 /dist
+
+# Test
+.coverage
+coverage.xml
