@@ -42,7 +42,7 @@ from dcc_utils.exceptions import DCCParsingError
 ### Validate DCC digital signature
 
 ```py
-signature = """
+signature = b"""
 -----BEGIN CERTIFICATE-----
 MIIIAjCCBeqgAwIBAgIQAnq8g/T
 -----END CERTIFICATE-----

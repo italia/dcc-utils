@@ -51,7 +51,7 @@ Validate DCC digital signature
 
 .. code:: py
 
-   signature = """
+   signature = b"""
    -----BEGIN CERTIFICATE-----
    MIIIAjCCBeqgAwIBAgIQAnq8g/T
    -----END CERTIFICATE-----
