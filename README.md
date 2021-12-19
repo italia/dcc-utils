@@ -41,6 +41,8 @@ assert dcc_from_img.kid == "53FOjX/4aJs="
 assert dcc_from_img.payload["v"][0]["ci"] == "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
 ```
 
+👉🏻 `payload` follows [EU Digital COVID Certificates JSON Schema Specification](https://ec.europa.eu/health/sites/default/files/ehealth/docs/covid-certificate_json_specification_en.pdf)
+
 `from_image` and `from_raw` methods may rise `DCCParsingError`
 
 ```py
