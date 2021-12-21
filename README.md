@@ -92,7 +92,8 @@ my_rule.evaluate_dcc(
 )
 ```
 
-you can also load a rule from JSON (`from_json`), useful to evaluate rules exposed on a server
+you can also load rules from JSON (`from_json`), useful to evaluate rules 
+exposed on a server
 
 ```py
 my_rule = rule.from_json({...})
@@ -100,7 +101,7 @@ my_rule = rule.from_json({...})
 
 ## Dev setup
 
-Install dependencies via your distribution or via pip:
+Install dependencies using pip:
 
 ```
 pip install -r requirements-dev.txt
@@ -120,6 +121,9 @@ What's in a EU Digital COVID/Green Certificate?
 ### Sample data
 Digital Green Certificate Gateway (DGCG) samples for all participating countries:
 https://github.com/eu-digital-green-certificates/dgc-testdata
+
+## Credits
+Parts of this code are adapted from [vacdec project](https://github.com/HQJaTu/vacdec).
 
 ## License
 This library is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.

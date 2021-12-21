@@ -37,8 +37,6 @@ class DCC:
 
 
 def from_raw(raw_data: str) -> DCC:
-    # Code adapted from:
-    # https://github.com/HQJaTu/vacdec/blob/main/vacdec
     if not raw_data.startswith("HC1:"):
         raise DCCParsingError("Not a valid DCC")
     try:

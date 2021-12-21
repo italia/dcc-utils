@@ -100,7 +100,7 @@ e.g. ``validationClock``
        },
    )
 
-you can also load a rule from JSON (``from_json``), useful to evaluate
+you can also load rules from JSON (``from_json``), useful to evaluate
 rules exposed on a server
 
 .. code:: py
@@ -110,7 +110,7 @@ rules exposed on a server
 Dev setup
 ---------
 
-Install dependencies via your distribution or via pip:
+Install dependencies using pip:
 
 ::
 
@@ -135,6 +135,12 @@ Sample data
 
 Digital Green Certificate Gateway (DGCG) samples for all participating
 countries: https://github.com/eu-digital-green-certificates/dgc-testdata
+
+Credits
+-------
+
+Parts of this code are adapted from `vacdec
+project <https://github.com/HQJaTu/vacdec>`__.
 
 License
 -------
