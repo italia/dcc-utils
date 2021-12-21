@@ -21,3 +21,12 @@ def test_rule_outta_time():
         },
     )
     assert not res
+
+
+def test_rule_description():
+    my_rule = rule.from_file(os.path.join("tests", "test_data", "de_v_rule.json"))
+    assert my_rule.payload["Identifier"] == "VR-DE-0001"
+    assert (
+        my_rule.description["en"]
+        == "The vaccination schedule must be complete (e.g., 1/1, 2/2)."
+    )

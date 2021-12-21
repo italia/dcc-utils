@@ -1,15 +1,34 @@
+import functools
 import json
 from dcc_utils.dcc import DCC
 from json_logic.cert_logic import certLogic
 
 
+# def aaa(descs, el):
+#     descs[el["lang"]] = el["desc"]
+#     return descs
+
+# def aaa(descs, el):
+#     descs.update({el["lang"]] : el["desc"]})
+#     return descs
+
+
 class Rule:
     def __init__(self, payload: dict):
         self._payload = payload
+        self._descriptions = functools.reduce(
+            lambda descs, el: descs.update({el["lang"]: el["desc"]}) or descs,
+            self._payload["Description"],
+            {},
+        )
 
     @property
     def payload(self) -> dict:
         return self._payload
+
+    @property
+    def description(self) -> dict:
+        return self._descriptions
 
     def evaluate_dcc(self, dcc: DCC, external: dict = {}) -> bool:
         return certLogic(
