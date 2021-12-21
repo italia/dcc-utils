@@ -28,10 +28,10 @@ This library takes an image with a QR code or a raw repr. of a vaccine certifica
 the parameter and will show the certificate's content. 
 
 ```py
-from dcc_utils import from_image
+from dcc_utils import dcc
 
-dcc_from_img = from_image("/my/certificate/path")
-dcc_from_raw = from_raw("HC1:6BF...FTPQ3C3F")
+dcc_from_img = dcc.from_image("/my/certificate/path")
+dcc_from_raw = dcc.from_raw("HC1:6BF...FTPQ3C3F")
 ```
 
 Then you can access to `payload` and `kid`
@@ -57,13 +57,45 @@ signature = b"""
 MIIIAjCCBeqgAwIBAgIQAnq8g/T
 -----END CERTIFICATE-----
 """
-assert dcc.check_signature(signature)
+assert my_dcc.check_signature(signature)
 ```
 
 `check_signature` method may rise `DCCSignatureError`
 
 ```py
 from dcc_utils.exceptions import DCCSignatureError
+```
+
+### Evaluate CertLogic business rules
+
+With dcc-utils you can evaluate [business rules](https://github.com/ehn-dcc-development/dgc-business-rules) against a DCC
+
+```py
+from dcc_utils import rule, dcc
+
+my_dcc = dcc.from_image("/my/certificate/path")
+my_rule = rule.from_file("/my/rule.json")
+print(my_rule.description["en"])
+my_rule.evaluate_dcc(my_dcc) # True or False
+```
+
+`evaluate_dcc` accepts extra variables as a second parameter, e.g. `validationClock`
+
+```py
+import datetime
+clock = datetime.datetime(2022, 10, 10, 0, 0, tzinfo=datetime.timezone.utc)
+my_rule.evaluate_dcc(
+    my_dcc,
+    {
+        "validationClock": clock,
+    },
+)
+```
+
+you can also load a rule from JSON (`from_json`), useful to evaluate rules exposed on a server
+
+```py
+my_rule = rule.from_json({...})
 ```
 
 ## Dev setup

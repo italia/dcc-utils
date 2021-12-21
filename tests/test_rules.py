@@ -6,7 +6,7 @@ from dcc_utils import rule, dcc
 def test_simple_rule():
     my_dcc = dcc.from_image(os.path.join("tests", "test_data", "valid_certificate.png"))
     my_rule = rule.from_file(os.path.join("tests", "test_data", "de_v_rule.json"))
-    res = my_rule.evaluate_dcc(my_dcc, 4)
+    res = my_rule.evaluate_dcc(my_dcc)
     assert res
 
 

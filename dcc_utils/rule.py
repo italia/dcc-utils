@@ -4,15 +4,6 @@ from dcc_utils.dcc import DCC
 from json_logic.cert_logic import certLogic
 
 
-# def aaa(descs, el):
-#     descs[el["lang"]] = el["desc"]
-#     return descs
-
-# def aaa(descs, el):
-#     descs.update({el["lang"]] : el["desc"]})
-#     return descs
-
-
 class Rule:
     def __init__(self, payload: dict):
         self._payload = payload
