@@ -9,6 +9,7 @@ setup(
         "base45==0.4.1",
         "cbor2==5.4.1",
         "cose==0.9.dev8",
+        "panzi-json-logic==1.0.1",
         "Pillow==8.3.1",
         "pyzbar==0.1.8",
         "typing-extensions==3.10.0.0",
