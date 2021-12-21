@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     name="dcc-utils",
     version="0.1.0",
-    url="https://github.com/astagi/dcc-utils",
+    url="https://github.com/italia/dcc-utils",
     install_requires=[
         "base45==0.4.1",
         "cbor2==5.4.1",
@@ -14,7 +14,7 @@ setup(
         "pyzbar==0.1.8",
         "typing-extensions==3.10.0.0",
     ],
-    description="DCC Utils for Python",
+    description="DCC utils for Python",
     long_description=open("README.rst").read(),
     license="MIT",
     author="Andrea Stagi",
