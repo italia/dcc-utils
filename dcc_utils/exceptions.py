@@ -8,3 +8,7 @@ class DCCParsingError(DCCError):
 
 class DCCSignatureError(DCCError):
     pass
+
+
+class DCCRuleError(DCCError):
+    pass

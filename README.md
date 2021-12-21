@@ -99,6 +99,12 @@ exposed on a server
 my_rule = rule.from_json({...})
 ```
 
+`from_file` and `from_json` method may rise `DCCRuleError`
+
+```py
+from dcc_utils.exceptions import DCCRuleError
+```
+
 ## Dev setup
 
 Install dependencies using pip:

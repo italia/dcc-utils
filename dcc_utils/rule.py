@@ -3,6 +3,8 @@ import json
 from dcc_utils.dcc import DCC
 from json_logic.cert_logic import certLogic
 
+from .exceptions import DCCRuleError
+
 
 class Rule:
     def __init__(self, payload: dict):
@@ -28,7 +30,11 @@ class Rule:
 
 
 def from_json(json_data: dict) -> Rule:
-    return Rule(json_data)
+    try:
+        json_data["Logic"]
+        return Rule(json_data)
+    except KeyError:
+        raise DCCRuleError("Unable to parse rule")
 
 
 def from_file(file_path: str) -> Rule:
