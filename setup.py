@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="dcc-utils",
-    version="0.2.0",
+    version="0.2.1",
     url="https://github.com/italia/dcc-utils",
     install_requires=[
         "base45==0.4.3",
