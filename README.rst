@@ -156,13 +156,13 @@ This library is available under the
 
 .. |Latest Version| image:: https://img.shields.io/pypi/v/dcc-utils.svg
    :target: https://pypi.python.org/pypi/dcc-utils/
-.. |CI| image:: https://github.com/astagi/dcc-utils/actions/workflows/ci.yml/badge.svg
-   :target: https://github.com/astagi/dcc-utils
-.. |Coverage| image:: https://codecov.io/gh/astagi/dcc-utils/branch/master/graph/badge.svg?token=SZ7lyP073V
-   :target: https://codecov.io/gh/astagi/dcc-utils
+.. |CI| image:: https://github.com/italia/dcc-utils/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/italia/dcc-utils
+.. |Coverage| image:: https://codecov.io/gh/italia/dcc-utils/branch/master/graph/badge.svg?token=SZ7lyP073V
+   :target: https://codecov.io/gh/italia/dcc-utils
 .. |Supported Python versions| image:: https://img.shields.io/badge/python-3.7%2C%203.8%2C%203.9%2C%203.10-blue.svg
    :target: https://pypi.python.org/pypi/dcc-utils/
-.. |License| image:: https://img.shields.io/github/license/astagi/dcc-utils.svg
+.. |License| image:: https://img.shields.io/github/license/italia/dcc-utils.svg
    :target: https://pypi.python.org/pypi/dcc-utils/
 .. |Downloads| image:: https://img.shields.io/pypi/dm/dcc-utils.svg
    :target: https://pypi.python.org/pypi/dcc-utils/
