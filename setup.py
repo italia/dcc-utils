@@ -6,7 +6,7 @@ setup(
     version="0.2.0",
     url="https://github.com/italia/dcc-utils",
     install_requires=[
-        "base45==0.4.1",
+        "base45==0.4.3",
         "cbor2==5.4.1",
         "cose==0.9.dev8",
         "panzi-json-logic==1.0.1",
