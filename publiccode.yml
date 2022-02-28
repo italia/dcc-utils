@@ -1,0 +1,79 @@
+publiccodeYmlVersion: "0.2"
+applicationSuite: it-dgc
+url: "https://github.com/italia/dcc-utils"
+name: DCC-Utils
+releaseDate: '2021-01-04'
+softwareType: library
+softwareVersion: v0.2.1
+developmentStatus: stable
+platforms:
+  - windows, mac, linux
+categories:
+  - data-visualization
+description:
+  it:
+    apiDocumentation: "https://github.com/ministero-salute/it-dgc-documentation"
+    documentation: "https://github.com/italia/dcc-utils"
+    features:
+      - Ottenere i dati del DCC
+      - Verificare la firma del DCC
+      - Verificare l'applicazione delle regole al DCC
+    genericName: DCC-Utils
+    longDescription: >
+      Libreria Python contenente una serie di funzioni per leggere i Certificati 
+      EU Digital COVID e verificarne firme e regole.
+      Puoi trovare maggiori informazioni su come installare e utilizzare la 
+      libreria [qui](https://github.com/italia/dcc-utils#readme).
+      Per maggiori informazioni su DCC, si rimanda alla [nostra documentazione](https://github.com/ministero-salute/it-dgc-documentation).
+    shortDescription: >-
+      Libreria Python contenente una serie di funzioni per leggere i Certificati 
+      EU Digital COVID e verificarne firme e regole.
+  en:
+    apiDocumentation: "https://github.com/ministero-salute/it-dgc-documentation"
+    documentation: "https://github.com/italia/dcc-utils"
+    features:
+      - Get DCC data
+      - Verify DCC signature
+      - Check DCC rules
+    genericName: DCC-Utils
+    longDescription: >
+      Python library containing a set of utilities to read EU Digital COVID 
+      Certificates, verify signatures and rules. 
+      You can fine more info on how to install and use DCC-Utils library
+      [here](https://github.com/italia/dcc-utils#readme).
+      For more info about DCC, please read [our documentation](https://github.com/ministero-salute/it-dgc-documentation).
+    shortDescription: >-
+      Python library containing a set of utilities to read EU Digital COVID 
+      Certificates, verify signatures and rules.
+intendedAudience:
+  scope:
+    - emergency-services
+    - government
+    - healthcare
+    - security
+    - welfare
+    - local-authorities
+it:
+  countryExtensionVersion: "0.2"
+  riuso:
+    codiceIPA: pcm
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: MIT
+localisation:
+  availableLanguages:
+    - en
+  localisationReady: true
+maintenance:
+  contacts:
+    - name: Andrea Stagi
+  type: community
